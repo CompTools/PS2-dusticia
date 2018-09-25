@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#Atlanta Table Info
+#Total flights
+cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16,24 | grep "GNV,ALT" -c
