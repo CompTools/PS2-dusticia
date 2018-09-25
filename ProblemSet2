@@ -1,2 +1,6 @@
+#!/bin/bash
+
 # Answer to question 1
+#selects the file; delimited by the comma, select the following fields 3,7,13,16 to find the corresponding GNV flights,then count the resuls
+
 cat flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep "GNV" | grep "1.00" -c
