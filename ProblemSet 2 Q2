@@ -5,4 +5,4 @@
 cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16,24 | grep "GNV,ALT" -c
 
 #Flights delayed by 15min
-cat flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","ATL' | grep "1.00" -c
+cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","ATL' | grep "1.00" -c
