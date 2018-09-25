@@ -5,23 +5,23 @@
   cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv| cut -d "," -f 3,7,13,16,24 | grep 'GNV","ALT' -c >> Q2Table.txt
 
   #Flights delayed by 15min
-  cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","ATL' | grep "1.00" -c >>Q2Table.txt
+  cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","ATL' | grep "1.00" -c >> Q2Table.txt
 
   #Weather Delays
-  cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,24 | grep 'GNV","ATL' | egrep [^0\n]\d*.00 -c >>Q2Table.txt
+  cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,24 | grep 'GNV","ATL' | egrep [^0\n]\d*.00 -c >> Q2Table.txt
 
  #CLT Table Info
     #CLT Total Flights
     cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16,24 | grep 'GNV","CLT' -c >> Q2Table.txt
     #CLT flights delayed 15min
-    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","CTL' | grep "1.00" -c >>Q2Table.txt
+    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","CTL' | grep "1.00" -c >> Q2Table.txt
     #CLT Weather Delays
-    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,24 | grep 'GNV","CLT' | egrep [^0\n]\d*.00 -c >>Q2Table.txt
+    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,24 | grep 'GNV","CLT' | egrep [^0\n]\d*.00 -c >> Q2Table.txt
 
  #MIA Table Info
     #MIA Total Flights
     cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16,24 | grep 'GNV","MIA' -c >> Q2Table.txt
     #MIA flights delayed 15min
-    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","MIA" | grep "1.00" -c >>Q2Table.txt
+    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","MIA" | grep "1.00" -c >> Q2Table.txt
     #MIA Weather Delays
-    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,24 | grep 'GNV","MIA' | egrep [^0\n]\d*.00 -c >>Q2Table.txt
+    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,24 | grep 'GNV","MIA' | egrep [^0\n]\d*.00 -c >> Q2Table.txt
