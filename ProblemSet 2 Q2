@@ -1,27 +1,45 @@
 #!/bin/bash
 
-#Atlanta Table Info
-  #Total flights
-  cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16,24 | grep 'GNV","ATL' -c >> Q2Table.txt
+#Airport Names
+	echo "GNV to:" >> airportnames.junk
+	echo "ATL" >> airportnames.junk
+	echo "CLT" >> airportnames.junk
+	echo "MIA" >> airportnames.junk
 
-  #Flights delayed by 15min
-  cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","ATL' | grep "1.00" -c >> Q2Table.txt
+#Total Flights Info
+	echo "Total flights" >> totalflights.junk
+	#ATL Total flights
+	cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16,24 | grep 'GNV","ATL' -c >> totalflights.junk
+	#CLT Total flights
+	cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16,24 | grep 'GNV","CLT' -c >> totalflights.junk
+	#MIA Total Flights
+	cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16,24 | grep 'GNV","MIA' -c >> totalflights.junk
 
-  #Weather Delays
-  cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,24 | grep 'GNV","ATL' | egrep [^0\n]\d*.00 -c >> Q2Table.txt
+#Flights Delayed by 15min
+	echo "Total flights delayed (>15min)" >> flightsdelayed.junk
+	#ATL flights delayed 15min
+	cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","ATL' | grep "1.00" -c >> flightsdelayed.junk
+	#CLT flights delayed 15min
+	cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","CLT' | grep "1.00" -c >> flightsdelayed.junk
+	#MIA flights delayed 15min
+	cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","MIA' | grep "1.00" -c >> flightsdelayed.junk
 
- #CLT Table Info
-    #CLT Total Flights
-    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16,24 | grep 'GNV","CLT' -c >> Q2Table.txt
-    #CLT flights delayed 15min
-    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","CLT' | grep "1.00" -c >> Q2Table.txt
-    #CLT Weather Delays
-    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,24 | grep 'GNV","CLT' | egrep [^0\n]\d*.00 -c >> Q2Table.txt
+#Total Flights Delayed due to Weather
+	echo "Total flights delayed due to Weather" >> weather.junk
+	#ATL Weather Delays
+	cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,24 | grep 'GNV","ATL' | egrep [^0\n]\d*.00 -c >> weather.junk
+	#CLT Weather Delays
+	cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,24 | grep 'GNV","CLT' | egrep [^0\n]\d*.00 -c >> weather.junk
+	#MIA Weather Delays
+	cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,24 | grep 'GNV","MIA' | egrep [^0\n]\d*.00 -c >> weather.junk
 
- #MIA Table Info
-    #MIA Total Flights
-    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16,24 | grep 'GNV","MIA' -c >> Q2Table.txt
-    #MIA flights delayed 15min
-    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,13,16 | grep 'GNV","MIA' | grep "1.00" -c >> Q2Table.txt
-    #MIA Weather Delays
-    cat /ufrc/zoo6927/share/Class_Files/data/flights.May2017-Apr2018.csv | cut -d "," -f 3,7,24 | grep 'GNV","MIA' | egrep [^0\n]\d*.00 -c >> Q2Table.txt
+#Paste Command to Create Airport Info Table
+	paste airportnames.junk totalflights.junk flightsdelayed.junk weather.junk >> airportinfo.table
+
+#Cat Command to Open Airport Info Table
+	cat airportinfo.table
+
+#Remove Command to get Rid of Junk Files
+	rm *.junk
+
+#End of Script
